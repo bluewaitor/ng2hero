@@ -1,7 +1,14 @@
-<div class="article-detail fox-markdown">
-  <h1>{{article?.title || ""}}</h1>
-  <p><span>作者: {{article?.user?.username}}</span></p>
-  <p><span>创建于: {{article?.created | date: 'yyyy-MM-dd HH:mm:ss'}}</span></p>
-  <div class="article-content" [innerHtml]="article?.content|marked">
+<div class="article-detail">
+  <div class="fox-markdown">
+    <h1>{{article?.title || ""}}</h1>
+    <p><span>作者: {{article?.user?.username}}</span></p>
+    <p><span>创建于: {{article?.created | date: 'yyyy-MM-dd HH:mm:ss'}}</span></p>
+    <div class="article-content" [innerHtml]="article?.content|marked">
+    </div>
   </div>
+
+  <app-add-comment (addComment)="addComment($event)" [id]="article?._id"></app-add-comment>
+  <app-comment-list (addComment)="addComment($event)" (toggleLike)="toggleLike($event)" [article]="article"></app-comment-list>
+
 </div>
+

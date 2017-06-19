@@ -1,0 +1,10 @@
+<div class="add-comment-container">
+  <div class="form-group">
+    <textarea type="text" placeholder="{{replyTo?.username ? '回复' + replyTo.username : '写下您的评论...'}}"
+           [(ngModel)]="comment"></textarea>
+  </div>
+  <div class="add-comment">
+    <button class="primary add-comment-btn" (click)="commentBtnClick()">发表</button>
+  </div>
+</div>
+

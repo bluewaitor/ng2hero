@@ -79,6 +79,9 @@ export class AuthHttp extends Http{
         observer.next(res);
       }, (err) => {
         if(!err.json().success){
+          if (err.status === 403) {
+            window.location.href = '/login';
+          }
           alert(err.json().message);
         }
         this._interceptor.afterRequest.emit("出错啦");

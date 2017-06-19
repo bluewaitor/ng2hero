@@ -1,0 +1,23 @@
+<ul *ngIf="article?.comments.length > 0">
+  <li *ngFor="let item of article?.comments" (click)="commentItemClick(item)">
+    <div class="user-info">
+      <a class="username" >{{item.user.username}} </a>
+      <span *ngIf="item.replyTo">回复</span>
+      <a class="username" *ngIf="item.replyTo">{{item.replyTo.username}}</a>
+      <span>:</span>
+    </div>
+    <p>{{item.comment}}</p>
+  </li>
+</ul>
+
+<!--<div class="icons">-->
+  <!--<span>-->
+    <!--<i class="iconfont icon-brush_fill" (click)="resetReplyTo()" ></i>-->
+  <!--</span>-->
+  <!--<span>-->
+    <!--<i class="iconfont icon-praise_fill" (click)="toggleLikeClick(word)" [class.blue]="word.isLike"></i><span>{{word.likes}}</span>-->
+  <!--</span>-->
+<!--</div>-->
+
+<!--<app-add-comment (addComment)="ListAddComment($event)" [id]="article?._id" [replyTo]="replyTo"></app-add-comment>-->
+

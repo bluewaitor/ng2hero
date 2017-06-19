@@ -9,11 +9,13 @@ import {CommonAddArticleComponent} from '../components/add-article/common-add-ar
 import {TreeComponent} from '../components/tree/tree.component';
 
 import {PaginationComponent} from '../components/pagination/pagination.component';
+import {CommentListComponent} from '../components/comment-list/comment-list.component';
+import {AddCommentComponent} from '../components/add-comment/add-comment.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, TabsModule],
-  exports: [CommonModule, FormsModule, TabsModule, MarkedPipe, EllipsisPipe, CommonAddArticleComponent, TreeComponent, PaginationComponent],
-  declarations: [MarkedPipe, EllipsisPipe, CommonAddArticleComponent, TreeComponent, PaginationComponent],
+  exports: [CommonModule, FormsModule, TabsModule, MarkedPipe, EllipsisPipe, CommonAddArticleComponent, TreeComponent, PaginationComponent, CommentListComponent, AddCommentComponent],
+  declarations: [MarkedPipe, EllipsisPipe, CommonAddArticleComponent, TreeComponent, PaginationComponent, CommentListComponent, AddCommentComponent],
   providers: [],
 })
 export class SharedModule {
