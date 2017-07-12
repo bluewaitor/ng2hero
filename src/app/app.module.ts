@@ -18,6 +18,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './modules/auth';
 import { UserService } from './services/user.service';
+
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,7 @@ import { UserService } from './services/user.service';
     CoreModule.forRoot(),
     AuthModule.forRoot(),
     AppRoutingModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
