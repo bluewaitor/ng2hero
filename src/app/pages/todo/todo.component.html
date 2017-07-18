@@ -14,7 +14,7 @@
   </div>
   <app-pagination [pages]="unDone?.pages" [page]="unDone?.page" (pageChange)="unDonePageChange($event)"></app-pagination>
 
-  <h2>已完成</h2>
+  <h1>已完成</h1>
   <div class="todo-list">
     <app-todo-list [todo]="todo" *ngFor="let todo of done?.docs" (todoChange)="todoChange($event)"></app-todo-list>
   </div>

@@ -1,4 +1,9 @@
-<div>
-  <input type="checkbox" (change)="statusChange($event)" [checked]="todo.status === 1">
-  {{todo.thing}}
+<div class="todo-item">
+  <label>
+    <input type="checkbox" (change)="statusChange($event)" [checked]="todo.status === 1">
+    <span [ngClass]="{done: todo.status === 1}" class="thing">{{todo.thing}}</span>
+    <span class="pull-right">
+      <span class="due-date">到期时间: {{todo.due|date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+    </span>
+  </label>
 </div>
