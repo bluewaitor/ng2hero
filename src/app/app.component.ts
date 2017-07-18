@@ -27,6 +27,7 @@ export class AppComponent implements OnInit, DoCheck {
       this.user = {};
     }
     this._chatService.sendMessage('hello ');
+    this._chatService.getMessage().subscribe(data=> {console.log(data)});
   }
 
   ngDoCheck(): void {

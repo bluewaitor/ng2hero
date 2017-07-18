@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: 'app/pages/u/u.module#UModule',
   },
   {
+    path: 'todo',
+    loadChildren: 'app/pages/todo/todo.module#TodoModule',
+  },
+  {
     path: '',
     redirectTo: 'article',
     pathMatch: 'full'

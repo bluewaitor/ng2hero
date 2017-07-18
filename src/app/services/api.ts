@@ -16,3 +16,7 @@ export const starUrl = apiPrefix + '/stars';
 export const CommentUrl = {
   addComment: apiPrefix + '/articles/comments'
 };
+
+export const TodoUrl = {
+  todo: apiPrefix + '/todos',
+};

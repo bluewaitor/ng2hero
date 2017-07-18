@@ -1,0 +1,24 @@
+<div class="todo-page">
+  <form (ngSubmit)="addTodo()" name="form" #f="ngForm" class="fox-flex all-center fox-wrap" novalidate>
+    <div class="form-group">
+      <input type="text" placeholder="待办" name="thing" [(ngModel)]="thing" class="form-control">
+    </div>
+    <div class="form-group text-center">
+      <button class="primary block">添加待办</button>
+    </div>
+  </form>
+
+  <h1>你的待办</h1>
+  <div class="todo-list">
+    <app-todo-list [todo]="todo" *ngFor="let todo of unDone?.docs" (todoChange)="todoChange($event)"></app-todo-list>
+  </div>
+  <app-pagination [pages]="unDone?.pages" [page]="unDone?.page" (pageChange)="unDonePageChange($event)"></app-pagination>
+
+  <h2>已完成</h2>
+  <div class="todo-list">
+    <app-todo-list [todo]="todo" *ngFor="let todo of done?.docs" (todoChange)="todoChange($event)"></app-todo-list>
+  </div>
+  <app-pagination [pages]="done?.pages" [page]="done?.page" (pageChange)="donePageChange($event)"></app-pagination>
+</div>
+
+

@@ -7,7 +7,9 @@
     <li>
       <a routerLink="/article" routerLinkActive="active" >文章</a>
     </li>
-
+    <li *ngIf="loggedIn">
+      <a routerLink="/todo" routerLinkActive="active" >todo</a>
+    </li>
     <li *ngIf="!loggedIn" class="pull-right">
       <a routerLink="/login" routerLinkActive="active">登录</a>
     </li>
