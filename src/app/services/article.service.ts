@@ -30,7 +30,7 @@ export class ArticleService {
   }
 
   getMyArticles(): Promise<Article[]> {
-    return this.http.get(this.meUrl + '/articles')
+    return this.http.get(this.artilcesUrl + '/me')
       .toPromise()
       .then(response => {
         return response.json().articles as Article[]
