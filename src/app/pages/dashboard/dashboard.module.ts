@@ -13,10 +13,11 @@ import { UserAddComponent } from './user/user-add.component';
 import { ArticleComponent } from'./article/article.component';
 import { AddArticleComponent } from './article/add-article.component';
 import { EditArticleComponent } from './article/edit-article.component';
+import { TodoComponent } from './todo/todo.component';
 @NgModule({
     imports: [ SharedModule, HttpModule, DashBoardRoutingModule ],
     exports: [],
-    declarations: [DashboardComponent, UserComponent, UserAddComponent, ArticleComponent, SiderComponent, AddArticleComponent, EditArticleComponent],
+    declarations: [DashboardComponent, UserComponent, UserAddComponent, ArticleComponent, SiderComponent, AddArticleComponent, EditArticleComponent, TodoComponent],
     providers: [],
 })
 export class DashboardModule {

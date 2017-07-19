@@ -10,6 +10,7 @@ import { UserAddComponent } from './user/user-add.component';
 import { ArticleComponent } from './article/article.component';
 import { AddArticleComponent } from './article/add-article.component';
 import { EditArticleComponent } from './article/edit-article.component';
+import {TodoComponent} from "./todo/todo.component";
 const routes: Routes = [
   { path: '',
     component: DashboardComponent,
@@ -35,6 +36,15 @@ const routes: Routes = [
       {
         path: 'article/edit/:id',
         component: EditArticleComponent,
+      },
+      {
+        path: 'todo',
+        component: TodoComponent
+      },
+      {
+        path: '',
+        redirectTo: 'user',
+        pathMatch: 'full'
       },
     ]
   }

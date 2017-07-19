@@ -1,0 +1,33 @@
+<table>
+  <thead>
+  <tr>
+    <th>编号</th>
+    <th>ID</th>
+    <th>用户名</th>
+    <th>待办事项</th>
+    <th>状态</th>
+    <th>到期时间</th>
+    <th>创建时间</th>
+    <th>修改时间</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let todo of todos?.docs; let i = index;" class="col-1-4">
+    <td>{{i+1}}</td>
+    <td>{{todo._id}}</td>
+    <td class="module hero">
+      {{todo?.user?.username}}
+    </td>
+    <td>{{todo.thing}}</td>
+    <td>{{todo.status ? '已完成' : '未完成'}}</td>
+    <td>{{todo.due | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+    <td>
+      {{todo.created | date:'yyyy-MM-dd HH:mm:ss'}}
+    </td>
+    <td>
+      {{todo.updated | date:'yyyy-MM-dd HH:mm:ss'}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+<app-pagination [pages]="todos?.pages" [page]="todos?.page" (pageChange)="pageChange($event)"></app-pagination>

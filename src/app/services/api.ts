@@ -21,4 +21,5 @@ export const CommentUrl = {
 
 export const TodoUrl = {
   todo: apiPrefix + '/todos',
+  todoAdmin: apiPrefix + '/todos/admin'
 };
