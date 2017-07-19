@@ -1,35 +1,28 @@
-///<reference path="../modules/auth/auth-http.ts"/>
-import { Injectable } from '@angular/core';
-import { AuthHttp } from '../modules/auth';
-import { starUrl } from './api';
-import 'rxjs/add/operator/toPromise';
+import {Injectable} from '@angular/core';
+import {AuthHttp} from '../modules/auth';
+import {starUrl} from './api';
 
 @Injectable()
 export class StarService {
 
-    constructor(private http: AuthHttp) { }
-    private starUrl = starUrl;
-    getMyStars(): Promise<any>{
-      return this.http.get(this.starUrl + '/me').toPromise().then(response => {
-        return response.json();
-      }).catch(err=>{
-        console.log(err);
-      })
-    }
+  constructor(private http: AuthHttp) {
+  }
 
-    addStar(title, url): Promise<any>{
-      return this.http.post(this.starUrl, {title: title, url: url}).toPromise().then(response=>{
-        return response.json()
-      }).catch(err=>{
-        console.log(err);
-      })
-    }
+  getMyStars(): any {
+    return this.http.get(starUrl + '/me').map(response => {
+      return response.json();
+    });
+  }
 
-    patchVisits(id): Promise<any>{
-      return this.http.patch(this.starUrl + '/' + id, {}).toPromise().then(response=>{
-        return response.json();
-      }).catch(err=>{
-        console.log(err);
-      })
-    }
+  addStar(title, url): any {
+    return this.http.post(starUrl, {title: title, url: url}).map(response => {
+      return response.json()
+    });
+  }
+
+  patchVisits(id): any {
+    return this.http.patch(starUrl + '/' + id, {}).map(response => {
+      return response.json();
+    });
+  }
 }

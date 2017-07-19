@@ -1,27 +1,29 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
 
 /**
  * App Root
  */
-import { AppComponent } from "./app.component";
-import { BannerComponent } from './components/banner/banner.component';
+import {AppComponent} from "./app.component";
+import {BannerComponent} from './components/banner/banner.component';
 
 /**
  * Routing Module
  */
-import { AppRoutingModule } from "./app-routing.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 /**
  * Feature Modules
  */
-import { CoreModule } from './core/core.module';
-import { AuthModule } from './modules/auth';
-import { UserService } from './services/user.service';
+import {CoreModule} from './core/core.module';
+import {AuthModule} from './modules/auth';
+import {UserService} from './services/user.service';
 
-import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import {apiUrl} from './services/api';
+
+const config: SocketIoConfig = {url: apiUrl, options: {}};
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
   providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 
 

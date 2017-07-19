@@ -8,7 +8,7 @@
   </div>
 
   <app-add-comment (addComment)="addComment($event)" [id]="article?._id"></app-add-comment>
-  <app-comment-list (addComment)="addComment($event)" (toggleLike)="toggleLike($event)" [article]="article"></app-comment-list>
+  <app-comment-list (addComment)="addComment($event)" [article]="article"></app-comment-list>
 
 </div>
 

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {ArticleService} from '../../services/article.service';
-import {Article} from "../../models/Article";
 import {CommentService} from '../../services/comment.service';
 @Component({
   selector: 'article-detail',
@@ -14,7 +13,7 @@ export class ArticleDetailComponent implements OnInit {
   ) {
   }
 
-  article: Article;
+  article;
 
   ngOnInit() {
     this.getArticle();
