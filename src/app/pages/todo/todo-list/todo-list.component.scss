@@ -11,8 +11,11 @@
   }
 
   label {
-    display: block;
+    //display: block;
     cursor: pointer;
+    input {
+      cursor: pointer;
+    }
   }
 
   .thing {
@@ -25,5 +28,10 @@
   .due-date{
     font-size: 14px;
     color: #999;
+  }
+
+  .delete {
+    color: #FF0033;
+    cursor: pointer;
   }
 }

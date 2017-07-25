@@ -29,5 +29,12 @@ export class TodoService {
       });
   }
 
+  deleteTodo(id): any {
+    return this.http.delete(TodoUrl.todo + '/' + id)
+      .map(response => {
+        return response.json();
+    })
+  }
+
 
 }

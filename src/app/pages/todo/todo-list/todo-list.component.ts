@@ -10,6 +10,7 @@ export class TodoListComponent implements OnInit {
   @Input('todo') todo;
 
   @Output() todoChange = new EventEmitter();
+  @Output() deleteItem = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class TodoListComponent implements OnInit {
 
   statusChange(e) {
     this.todoChange.emit(this.todo);
+  }
+
+  deleteTodo(e) {
+    this.deleteItem.emit(this.todo);
   }
 
 }

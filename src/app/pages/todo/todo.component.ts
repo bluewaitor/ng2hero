@@ -74,4 +74,15 @@ export class TodoComponent implements OnInit {
     })
   }
 
+  todoDelete(todo) {
+    let isSure = confirm('确定要删除这个待办吗?');
+    if (isSure) {
+      this._todoService.deleteTodo(todo._id).subscribe((data) => {
+        if (data.success) {
+          this.getDoneTodo(1);
+          this.getUnDoneTodo(1);
+        }
+      })
+    }
+  }
 }
