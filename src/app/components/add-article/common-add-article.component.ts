@@ -13,33 +13,37 @@ import {Observable} from "rxjs";
 export class CommonAddArticleComponent implements OnInit {
 
 
-  constructor(private _articleService: ArticleService, private _location: Location, private _route: ActivatedRoute) {
+  constructor(private _articleService: ArticleService,
+              private _location: Location,
+              private _route: ActivatedRoute) {
 
   }
 
-  @Input() type: String;
+  @Input() type;
 
   isEdit: boolean = false;
+
   title: String = "";
   content: String = "";
   publish: boolean = true;
   secret: boolean = false;
 
   articleId: String = "";
+
   ngOnInit() {
     this._route.params.switchMap((params: Params) => {
-      if(params['id']) {
+      if (params['id']) {
         this.isEdit = true;
         this.articleId = params['id'];
         return this._articleService.getArticleById(params['id']);
-      }else{
+      } else {
         return Observable.of({title: "", content: "", publish: true, secret: false})
       }
     }).subscribe(article => {
-      this.title = article && article.title;
-      this.content = article && article.content;
-      this.publish = article && article.publish;
-      this.secret = article && article.secret;
+      this.title = article['title'];
+      this.content = article['content'];
+      this.publish = article['publish'];
+      this.secret = article['secret'];
     });
   }
 
@@ -52,14 +56,19 @@ export class CommonAddArticleComponent implements OnInit {
       alert("文章内容不能为空");
       return;
     }
-    this._articleService.addArticle({title: title, content: content, publish: publish, secret: secret}).then(data => {
+    this._articleService.addArticle({
+      title: title,
+      content: content,
+      publish: publish,
+      secret: secret
+    }).subscribe(data => {
       if (data.success) {
         this._location.back();
       }
     });
   }
 
-  editArticle(title, content, publish, secret){
+  editArticle(title, content, publish, secret) {
     if (!title) {
       alert("title不能为空");
       return;
@@ -69,10 +78,15 @@ export class CommonAddArticleComponent implements OnInit {
       return;
     }
 
-    this._articleService.editArticle( this.articleId, {title: title, content: content, publish: publish, secret: secret}).then(data => {
+    this._articleService.editArticle(this.articleId, {
+      title: title,
+      content: content,
+      publish: publish,
+      secret: secret
+    }).subscribe(data => {
       if (data.success) {
         this._location.back();
       }
-    });
+    })
   }
 }

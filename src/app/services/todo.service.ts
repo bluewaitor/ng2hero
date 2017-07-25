@@ -15,6 +15,13 @@ export class TodoService {
       });
   }
 
+  getTodoByAdmin(page): any {
+    return this.http.get(TodoUrl.todoAdmin + '?page=' + page)
+      .map(response => {
+        return response.json()
+      });
+  }
+
   addTodo(thing): any {
     return this.http.post(TodoUrl.todo, {thing: thing})
       .map(response => {

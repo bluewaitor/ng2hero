@@ -1,73 +1,54 @@
 import {Injectable} from '@angular/core';
-import {Article} from "../models/Article";
-import 'rxjs/add/operator/toPromise';
-
 import {AuthHttp} from '../modules/auth';
-import {articlesUrl, dashboardArticlesUrl, meUrl} from './api';
+import {articlesUrl, dashboardArticlesUrl} from './api';
+
 @Injectable()
 export class ArticleService {
 
-  private artilcesUrl: string = articlesUrl;
-  private dashboardArticlesUrl: string = dashboardArticlesUrl;
-  private meUrl: string = meUrl;
 
   constructor(private http: AuthHttp) {
   }
 
 
   getArticlesForDashboard(page): any{
-    return this.http.get(this.dashboardArticlesUrl + '?page=' + page)
+    return this.http.get(dashboardArticlesUrl + '?page=' + page)
       .map(response => {
         return response.json().articles
       })
   }
 
   getAllArticle(page): any {
-    return this.http.get(this.artilcesUrl + '?page=' + page)
+    return this.http.get(articlesUrl + '?page=' + page)
       .map(response => {
         return response.json();
       });
   }
 
-  getMyArticles(): Promise<Article[]> {
-    return this.http.get(this.artilcesUrl + '/me')
-      .toPromise()
-      .then(response => {
-        return response.json().articles as Article[]
+  getMyArticles(): any {
+    return this.http.get(articlesUrl + '/me')
+      .map(response => {
+        return response.json().articles
       })
-      .catch((err) => {
-        console.log(err);
+  }
+
+  getArticleById(id): any {
+    return this.http.get(articlesUrl + '/' + id)
+      .map(response => {
+        return response.json().article;
       });
   }
 
-  getArticleById(id): Promise<Article> {
-    return this.http.get(this.artilcesUrl + '/' + id)
-      .toPromise()
-      .then(response => {
-        return response.json().article as Article;
-      })
-      .catch((err) => {
-        console.log(err);
+  addArticle(obj): any {
+    return this.http.post(articlesUrl, obj)
+      .map(response => {
+        return response.json();
       })
   }
 
-  addArticle(obj): Promise<any> {
-    return this.http.post(this.artilcesUrl, obj)
-      .toPromise()
-      .then(response => {
+  editArticle(id, obj): any {
+    return this.http.put(articlesUrl + '/' + id, obj)
+      .map(response => {
         return response.json();
-      }).catch((err) => {
-        console.log(err);
-      });
-  }
-
-  editArticle(id, obj): Promise<any> {
-    return this.http.put(this.artilcesUrl + '/' + id, obj)
-      .toPromise()
-      .then(response => {
-        return response.json();
-      }).catch((err) => {
-        console.log(err);
       });
   }
 }

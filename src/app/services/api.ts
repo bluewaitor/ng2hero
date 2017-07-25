@@ -5,6 +5,8 @@ if (environment.production) {
     apiPrefix = 'http://api.bluewaitor.com';
 }
 
+export const apiUrl = apiPrefix;
+
 export const loginUrl = apiPrefix + '/account/login';
 export const signUrl = apiPrefix + '/account/signup';
 export const usersUrl = apiPrefix + '/users';
@@ -19,4 +21,5 @@ export const CommentUrl = {
 
 export const TodoUrl = {
   todo: apiPrefix + '/todos',
+  todoAdmin: apiPrefix + '/todos/admin'
 };

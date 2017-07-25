@@ -6,6 +6,9 @@ import {UserService} from '../../../services/user.service';
   styleUrls: ['user-setting.component.scss']
 })
 export class UserSettingComponent implements OnInit {
+  oldPassword;
+  newPassword;
+  repeatPassword;
   constructor(private _userService: UserService) {
   }
 
@@ -22,15 +25,15 @@ export class UserSettingComponent implements OnInit {
       return;
     }
 
-    this._userService.changePassword({oldPassword: oldPassword, newPassword: newPassword, repeatPassword: repeatPassword}).then(data=>{
+    this._userService.changePassword({oldPassword: oldPassword, newPassword: newPassword, repeatPassword: repeatPassword}).subscribe(data=>{
+      this.oldPassword = '';
+      this.newPassword = '';
+      this.repeatPassword = '';
       if(data.success) {
         alert('修改成功');
       }else{
         alert(data.message);
       }
-      console.log(data);
-    }).catch(err=>{
-      console.log(err);
     })
   }
 }

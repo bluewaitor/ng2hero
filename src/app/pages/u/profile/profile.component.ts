@@ -12,14 +12,14 @@ export class ProfileComponent implements OnInit {
   }
 
   user;
+
   ngOnInit() {
     this._userService.getMe()
-      .then(user => {
+      .subscribe(user => {
         this.user = user;
-      }).catch(err => {
-      console.log(err);
-    });
+      });
   }
+
   logout() {
     this._authService.logout();
   }
