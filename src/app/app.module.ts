@@ -19,11 +19,11 @@ import {CoreModule} from './core/core.module';
 import {AuthModule} from './modules/auth';
 import {UserService} from './services/user.service';
 
-import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
+// import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
+//
+// import {apiUrl} from './services/api';
 
-import {apiUrl} from './services/api';
-
-const config: SocketIoConfig = {url: apiUrl, options: {}};
+// const config: SocketIoConfig = {url: apiUrl, options: {}};
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,7 @@ const config: SocketIoConfig = {url: apiUrl, options: {}};
     CoreModule.forRoot(),
     AuthModule.forRoot(),
     AppRoutingModule,
-    SocketIoModule.forRoot(config)
+    // SocketIoModule.forRoot(config)
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
