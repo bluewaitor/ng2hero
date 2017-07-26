@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class Ng2heroPage {
+export class StarPage {
   navigateTo() {
     return browser.get('/');
   }

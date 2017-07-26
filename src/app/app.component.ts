@@ -1,5 +1,5 @@
-import {Component, OnInit, DoCheck} from "@angular/core";
-import {AuthService} from "./services/auth.service";
+import {Component, OnInit, DoCheck} from '@angular/core';
+import {AuthService} from './services/auth.service';
 import {ChatService} from './services/chat.service';
 @Component({
   selector: 'app-root',
@@ -21,20 +21,22 @@ export class AppComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.loggedIn = this._authService.loggedIn();
 
-    if(this.loggedIn) {
+    if (this.loggedIn) {
       this.user = this._authService.getUserInfo().user;
-    }else{
+    } else {
       this.user = {};
     }
     this._chatService.sendMessage('hello ');
-    this._chatService.getMessage().subscribe(data=> {console.log(data)});
+    this._chatService.getMessage().subscribe(data => {
+      console.log(data);
+    });
   }
 
   ngDoCheck(): void {
     this.loggedIn = this._authService.loggedIn();
-    if(this.loggedIn) {
+    if (this.loggedIn) {
       this.user = this._authService.getUserInfo().user;
-    }else{
+    } else {
       this.user = {};
     }
   }

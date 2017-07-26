@@ -1,10 +1,10 @@
-import { Ng2heroPage } from './app.po';
+import { StarPage } from './app.po';
 
 describe('ng2hero App', function() {
-  let page: Ng2heroPage;
+  let page: StarPage;
 
   beforeEach(() => {
-    page = new Ng2heroPage();
+    page = new StarPage();
   });
 
   it('should display message saying app works', () => {
