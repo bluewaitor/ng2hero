@@ -1,16 +1,16 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 /**
  * App Root
  */
-import {AppComponent} from "./app.component";
+import {AppComponent} from './app.component';
 import {BannerComponent} from './components/banner/banner.component';
 
 /**
  * Routing Module
  */
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 
 /**
  * Feature Modules
