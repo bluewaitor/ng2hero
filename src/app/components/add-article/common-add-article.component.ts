@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {ArticleService} from '../../services/article.service';
 import {ActivatedRoute, Params} from '@angular/router';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'common-add-article',
@@ -21,14 +21,14 @@ export class CommonAddArticleComponent implements OnInit {
 
   @Input() type;
 
-  isEdit: boolean = false;
+  isEdit = false;
 
-  title: String = "";
-  content: String = "";
-  publish: boolean = true;
-  secret: boolean = false;
+  title: String = '';
+  content: String = '';
+  publish = true;
+  secret = false;
 
-  articleId: String = "";
+  articleId: String = '';
 
   ngOnInit() {
     this._route.params.switchMap((params: Params) => {
@@ -37,7 +37,7 @@ export class CommonAddArticleComponent implements OnInit {
         this.articleId = params['id'];
         return this._articleService.getArticleById(params['id']);
       } else {
-        return Observable.of({title: "", content: "", publish: true, secret: false})
+        return Observable.of({title: '', content: '', publish: true, secret: false});
       }
     }).subscribe(article => {
       this.title = article['title'];
@@ -49,11 +49,11 @@ export class CommonAddArticleComponent implements OnInit {
 
   addArticle(title, content, publish, secret) {
     if (!title) {
-      alert("title不能为空");
+      alert('title不能为空');
       return;
     }
     if (!content) {
-      alert("文章内容不能为空");
+      alert('文章内容不能为空');
       return;
     }
     this._articleService.addArticle({
@@ -70,11 +70,11 @@ export class CommonAddArticleComponent implements OnInit {
 
   editArticle(title, content, publish, secret) {
     if (!title) {
-      alert("title不能为空");
+      alert('title不能为空');
       return;
     }
     if (!content) {
-      alert("文章内容不能为空");
+      alert('文章内容不能为空');
       return;
     }
 
@@ -87,6 +87,6 @@ export class CommonAddArticleComponent implements OnInit {
       if (data.success) {
         this._location.back();
       }
-    })
+    });
   }
 }

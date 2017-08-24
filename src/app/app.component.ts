@@ -12,7 +12,7 @@ import {AuthService} from './services/auth.service';
   providers: [AuthService, /*ChatService*/],
 })
 export class AppComponent implements OnInit, DoCheck {
-  loggedIn: boolean = false;
+  loggedIn = false;
   user;
 
   constructor(private _authService: AuthService, /*private _chatService: ChatService*/) {
@@ -27,9 +27,9 @@ export class AppComponent implements OnInit, DoCheck {
       this.user = {};
     }
     /*this._chatService.sendMessage('hello ');
-    this._chatService.getMessage().subscribe(data => {
-      console.log(data);
-    });*/
+     this._chatService.getMessage().subscribe(data => {
+     console.log(data);
+     });*/
   }
 
   ngDoCheck(): void {

@@ -6,11 +6,10 @@ import {CommentService} from '../../services/comment.service';
   selector: 'article-detail',
   templateUrl: 'article-detail.component.html',
   styleUrls: ['article-detail.component.scss'],
-  providers: [ArticleService, CommentService],
+  providers: [],
 })
 export class ArticleDetailComponent implements OnInit {
-  constructor(private _route: ActivatedRoute, private _articleService: ArticleService, private _commentService: CommentService,
-  ) {
+  constructor(private _route: ActivatedRoute, private _articleService: ArticleService, private _commentService: CommentService) {
   }
 
   article;

@@ -15,7 +15,7 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() {
     this._interceptor.beforeRequest.subscribe(data => {
-      if(this.messages.length > 9) {
+      if (this.messages.length > 9) {
         this.messages.shift();
       }
       this.messages.push({
@@ -24,15 +24,15 @@ export class MessageComponent implements OnInit {
       });
     });
 
-    this._interceptor.afterRequest.subscribe(data=> {
-      if(this.messages.length > 9) {
+    this._interceptor.afterRequest.subscribe(data => {
+      if (this.messages.length > 9) {
         this.messages.shift();
       }
       this.messages.push({
         message: data,
         type: 'primary'
       });
-    })
+    });
   }
 
 }

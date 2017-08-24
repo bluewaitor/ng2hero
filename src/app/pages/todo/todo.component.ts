@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {TodoService} from "../../services/todo.service";
+import {TodoService} from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
-  providers: [TodoService]
 })
 export class TodoComponent implements OnInit {
 
-  thing: string = '';
+  thing = '';
   unDone;
   done;
+
   constructor(private _todoService: TodoService) {
   }
 
@@ -27,7 +27,7 @@ export class TodoComponent implements OnInit {
 
         this.unDone = data.todos;
       }
-    })
+    });
   }
 
   // 已完成
@@ -37,7 +37,7 @@ export class TodoComponent implements OnInit {
         this.thing = '';
         this.done = data.todos;
       }
-    })
+    });
   }
 
   // 完成分页
@@ -57,7 +57,7 @@ export class TodoComponent implements OnInit {
         this.thing = '';
         this.getUnDoneTodo(1);
       }
-    })
+    });
   }
 
   todoChange(todo) {
@@ -71,18 +71,18 @@ export class TodoComponent implements OnInit {
         this.getDoneTodo(1);
         this.getUnDoneTodo(1);
       }
-    })
+    });
   }
 
   todoDelete(todo) {
-    let isSure = confirm('确定要删除这个待办吗?');
+    const isSure = confirm('确定要删除这个待办吗?');
     if (isSure) {
       this._todoService.deleteTodo(todo._id).subscribe((data) => {
         if (data.success) {
           this.getDoneTodo(1);
           this.getUnDoneTodo(1);
         }
-      })
+      });
     }
   }
 }

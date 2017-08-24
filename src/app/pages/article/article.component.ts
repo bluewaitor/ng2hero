@@ -5,11 +5,11 @@ import {ArticleService} from '../../services/article.service';
   selector: 'article',
   templateUrl: 'article.component.html',
   styleUrls: ['article.component.scss'],
-  providers: [ArticleService],
 })
 export class ArticleComponent implements OnInit {
 
   articles;
+
   constructor(private _articleService: ArticleService) {
   }
 
@@ -19,15 +19,15 @@ export class ArticleComponent implements OnInit {
 
   getArticleByPage(page) {
     this._articleService.getAllArticle(page)
-      .subscribe(data=> {
-        if(data.success) {
+      .subscribe(data => {
+        if (data.success) {
           this.articles = data.articles;
         }
       })
   }
 
 
-  pageChange(index){
+  pageChange(index) {
     this.getArticleByPage(index);
   }
 }

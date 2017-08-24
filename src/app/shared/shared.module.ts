@@ -14,8 +14,27 @@ import {AddCommentComponent} from '../components/add-comment/add-comment.compone
 
 @NgModule({
   imports: [CommonModule, FormsModule, TabsModule],
-  exports: [CommonModule, FormsModule, TabsModule, MarkedPipe, EllipsisPipe, CommonAddArticleComponent, TreeComponent, PaginationComponent, CommentListComponent, AddCommentComponent],
-  declarations: [MarkedPipe, EllipsisPipe, CommonAddArticleComponent, TreeComponent, PaginationComponent, CommentListComponent, AddCommentComponent],
+  declarations: [
+    MarkedPipe,
+    EllipsisPipe,
+    CommonAddArticleComponent,
+    TreeComponent,
+    PaginationComponent,
+    CommentListComponent,
+    AddCommentComponent
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    TabsModule,
+    MarkedPipe,
+    EllipsisPipe,
+    CommonAddArticleComponent,
+    TreeComponent,
+    PaginationComponent,
+    CommentListComponent,
+    AddCommentComponent
+  ],
   providers: [],
 })
 export class SharedModule {

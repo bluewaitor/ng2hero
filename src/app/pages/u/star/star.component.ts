@@ -5,7 +5,7 @@ import {StarService} from '../../../services/star.service';
   selector: 'star',
   templateUrl: 'star.component.html',
   styleUrls: ['star.component.scss'],
-  providers: [StarService]
+  providers: []
 })
 export class StarComponent implements OnInit {
   stars = [];

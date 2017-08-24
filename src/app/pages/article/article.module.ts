@@ -6,8 +6,8 @@ import {ArticleRoutingModule} from './article-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 @NgModule({
   imports: [
-    ArticleRoutingModule,
     SharedModule,
+    ArticleRoutingModule,
   ],
   declarations: [ArticleComponent, ArticleDetailComponent, AddArticleComponent],
   providers: [],

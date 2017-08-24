@@ -4,12 +4,12 @@ import {TodoRoutingModule} from './todo-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 
 import {TodoComponent} from './todo.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import {TodoListComponent} from './todo-list/todo-list.component';
 
 @NgModule({
   imports: [
-    TodoRoutingModule,
-    SharedModule
+    SharedModule,
+    TodoRoutingModule
   ],
   declarations: [TodoComponent, TodoListComponent]
 })

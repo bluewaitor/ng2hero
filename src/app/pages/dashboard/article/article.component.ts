@@ -1,29 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../../../services/article.service'
+import {Component, OnInit} from '@angular/core';
+import {ArticleService} from '../../../services/article.service'
 
 @Component({
-    selector: 'article',
-    templateUrl: 'article.component.html',
-    providers: [ ArticleService ]
+  selector: 'article',
+  templateUrl: 'article.component.html',
 })
 export class ArticleComponent implements OnInit {
 
-    articles;
+  articles;
 
-    constructor(private _articleService: ArticleService) { }
+  constructor(private _articleService: ArticleService) {
+  }
 
-    ngOnInit() {
-        this.getArticlesByPage(1);
-    }
+  ngOnInit() {
+    this.getArticlesByPage(1);
+  }
 
-    getArticlesByPage(page) {
-      this._articleService.getArticlesForDashboard(page)
-        .subscribe(articles=>{
-          this.articles = articles;
-        })
-    }
+  getArticlesByPage(page) {
+    this._articleService.getArticlesForDashboard(page)
+      .subscribe(articles => {
+        this.articles = articles;
+      });
+  }
 
-    pageChange(page){
-      this.getArticlesByPage(page);
-    }
+  pageChange(page) {
+    this.getArticlesByPage(page);
+  }
 }

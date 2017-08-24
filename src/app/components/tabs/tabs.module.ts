@@ -6,8 +6,7 @@ import { TabComponent } from './tab.component';
   imports: [
     CommonModule
   ],
-  exports: [ TabsComponent, TabComponent],
   declarations: [ TabsComponent, TabComponent ],
-  providers: [],
+  exports: [ TabsComponent, TabComponent],
 })
 export class TabsModule { }

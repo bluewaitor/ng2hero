@@ -9,6 +9,7 @@ export class UserSettingComponent implements OnInit {
   oldPassword;
   newPassword;
   repeatPassword;
+
   constructor(private _userService: UserService) {
   }
 
@@ -16,24 +17,28 @@ export class UserSettingComponent implements OnInit {
   }
 
   changePassword(oldPassword, newPassword, repeatPassword) {
-    if(!oldPassword || !newPassword || !repeatPassword) {
-      alert("密码不能为空");
+    if (!oldPassword || !newPassword || !repeatPassword) {
+      alert('密码不能为空');
       return;
     }
-    if(newPassword != repeatPassword) {
+    if (newPassword !== repeatPassword) {
       alert('新密码和重复新密码不一致');
       return;
     }
 
-    this._userService.changePassword({oldPassword: oldPassword, newPassword: newPassword, repeatPassword: repeatPassword}).subscribe(data=>{
+    this._userService.changePassword({
+      oldPassword: oldPassword,
+      newPassword: newPassword,
+      repeatPassword: repeatPassword
+    }).subscribe(data => {
       this.oldPassword = '';
       this.newPassword = '';
       this.repeatPassword = '';
-      if(data.success) {
+      if (data.success) {
         alert('修改成功');
-      }else{
+      } else {
         alert(data.message);
       }
-    })
+    });
   }
 }

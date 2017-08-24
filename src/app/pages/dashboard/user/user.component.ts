@@ -17,13 +17,13 @@ export class UserComponent implements OnInit {
     this.getUserByPage(1);
   }
 
-  getUserByPage(page){
+  getUserByPage(page) {
     this.userService.getAllUser(page).subscribe(heroes => {
-      this.heroes = heroes
-    })
+      this.heroes = heroes;
+    });
   }
 
-  pageChange(index){
+  pageChange(index) {
     this.getUserByPage(index);
   }
 

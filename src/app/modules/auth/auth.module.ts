@@ -1,8 +1,8 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HttpModule, Http, RequestOptions, XHRBackend} from '@angular/http';
+import {HttpModule, RequestOptions, XHRBackend} from '@angular/http';
 
-import {AuthGuard}   from './auth-guard.service';
+import {AuthGuard} from './auth-guard.service';
 import {AdminGuard} from './admin-guard.service';
 import {TokenService} from './token.service';
 
@@ -15,7 +15,10 @@ import {InterceptorService} from './interceptor.service';
 import {LoadingComponent} from './loading.component';
 import {MessageComponent} from './message.component';
 
-export function authHttpFactory(xhrBackend: XHRBackend, options: RequestOptions, tokenService: TokenService, interceptor: InterceptorService) {
+export function authHttpFactory(xhrBackend: XHRBackend,
+                                options: RequestOptions,
+                                tokenService: TokenService,
+                                interceptor: InterceptorService) {
   return new AuthHttp(xhrBackend, options, tokenService, interceptor);
 }
 
@@ -38,7 +41,7 @@ export class AuthModule {
         },
         InterceptorService
       ]
-    }
+    };
   }
 }
 

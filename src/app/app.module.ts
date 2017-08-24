@@ -17,7 +17,7 @@ import {AppRoutingModule} from './app-routing.module';
  */
 import {CoreModule} from './core/core.module';
 import {AuthModule} from './modules/auth';
-import {UserService} from './services/user.service';
+
 
 // import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
 //
@@ -36,7 +36,7 @@ import {UserService} from './services/user.service';
     AppRoutingModule,
     // SocketIoModule.forRoot(config)
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
