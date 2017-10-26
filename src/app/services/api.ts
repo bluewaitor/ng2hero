@@ -23,3 +23,5 @@ export const TodoUrl = {
   todo: apiPrefix + '/todos',
   todoAdmin: apiPrefix + '/todos/admin'
 };
+
+export const TagUrl = apiPrefix + '/tags';

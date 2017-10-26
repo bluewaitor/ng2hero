@@ -13,6 +13,8 @@ import {ArticleComponent} from'./article/article.component';
 import {AddArticleComponent} from './article/add-article.component';
 import {EditArticleComponent} from './article/edit-article.component';
 import {TodoComponent} from './todo/todo.component';
+import {TagComponent} from './tag/tag.component';
+
 @NgModule({
   imports: [
     SharedModule,
@@ -26,7 +28,8 @@ import {TodoComponent} from './todo/todo.component';
     SiderComponent,
     AddArticleComponent,
     EditArticleComponent,
-    TodoComponent
+    TodoComponent,
+    TagComponent
   ],
 })
 export class DashboardModule {

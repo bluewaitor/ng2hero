@@ -1,18 +1,20 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { DashboardComponent } from './dashboard.component';
+import {DashboardComponent} from './dashboard.component';
 
-import { AuthGuard, AdminGuard } from '../../modules/auth';
+import {AuthGuard, AdminGuard} from '../../modules/auth';
 
-import { UserComponent } from './user/user.component';
-import { UserAddComponent } from './user/user-add.component';
-import { ArticleComponent } from './article/article.component';
-import { AddArticleComponent } from './article/add-article.component';
-import { EditArticleComponent } from './article/edit-article.component';
+import {UserComponent} from './user/user.component';
+import {UserAddComponent} from './user/user-add.component';
+import {ArticleComponent} from './article/article.component';
+import {AddArticleComponent} from './article/add-article.component';
+import {EditArticleComponent} from './article/edit-article.component';
 import {TodoComponent} from "./todo/todo.component";
+import {TagComponent} from './tag/tag.component';
 const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     component: DashboardComponent,
     canActivate: [AuthGuard, AdminGuard],
     children: [
@@ -42,6 +44,10 @@ const routes: Routes = [
         component: TodoComponent
       },
       {
+        path: 'tag',
+        component: TagComponent
+      },
+      {
         path: '',
         redirectTo: 'user',
         pathMatch: 'full'
@@ -55,4 +61,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashBoardRoutingModule { }
+export class DashBoardRoutingModule {
+}

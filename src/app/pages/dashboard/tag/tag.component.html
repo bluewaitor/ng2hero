@@ -1,0 +1,18 @@
+
+<table>
+  <thead>
+  <tr>
+    <th>编号</th>
+    <th>ID</th>
+    <th>标签名</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tag of tags; let i = index;" class="col-1-4">
+    <td>{{i+1}}</td>
+    <td>{{tag._id}}</td>
+    <td>{{tag.name}}</td>
+  </tr>
+  </tbody>
+</table>
+<!--<app-pagination [pages]="tags?.pages" [page]="tags?.page" (pageChange)="pageChange($event)"></app-pagination>-->
